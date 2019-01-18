@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import {initDynamicRouteMap} from './router/index'
+import './plugins/iview.js'
 
 Vue.config.productionTip = false;
 
