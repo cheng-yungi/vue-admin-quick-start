@@ -1,4 +1,4 @@
 export interface Permission {
-  role: string
-  routes: Array<number>
+  role: string;
+  routes: string[];
 }

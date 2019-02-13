@@ -1,18 +1,18 @@
 interface PlatformConig {
-  baseUrl: string
+  baseUrl: string;
 }
 const lftConfig = {
-  baseUrl: 'https://merchant.laifutonepay.com:3333'
-}
+  baseUrl: 'https://merchant.laifutonepay.com:3333',
+};
 const devConfig = {
   baseUrl: '',
-}
-let platformConig: PlatformConig
+};
+let platformConig: PlatformConig;
 switch (process.env.NODE_ENV) {
   case 'lft':
-    platformConig = lftConfig
-    break
+    platformConig = lftConfig;
+    break;
   default:
-    platformConig = devConfig
+    platformConig = devConfig;
 }
-export default platformConig
+export default platformConig;
