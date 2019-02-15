@@ -1,22 +1,22 @@
-import { SET_NEW_ROUTER, SET_ACCOUNT, SET_AUTH, SET_ROLE, SET_TOKEN, SET_BELONG_TO } from '../../store-type';
+import {SET_NEW_ROUTER, SET_ACCOUNT, SET_AUTH, SET_ROLE, SET_TOKEN, SET_BELONG_TO} from '../../types';
 
 export const mutations = {
-  [SET_NEW_ROUTER](state: any, newRouter: object[]) {
+  [SET_NEW_ROUTER](state: LoginState, newRouter: []) {
     state.newRouter = newRouter;
   },
-  [SET_ACCOUNT](state: any, account: string) {
+  [SET_ACCOUNT](state: LoginState, account: string) {
     state.account = account;
   },
-  [SET_AUTH](state: any, auth: string[]) {
+  [SET_AUTH](state: LoginState, auth: string) {
     state.auth = auth;
   },
-  [SET_ROLE](state: any, role: string) {
+  [SET_ROLE](state: LoginState, role: string) {
     state.role = role;
   },
-  [SET_TOKEN](state: any, token: string) {
+  [SET_TOKEN](state: LoginState, token: string) {
     state.token = token;
   },
-  [SET_BELONG_TO](state: any, belongTo: string) {
-    state.token = belongTo;
+  [SET_BELONG_TO](state: LoginState, belongTo: string) {
+    state.belongTo = belongTo;
   },
 };

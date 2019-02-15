@@ -17,20 +17,20 @@ import { Component, Prop, Vue, Provide } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
 import { aesEncrypt, aesDecrypt } from '../utils/encrpt';
 import aesConfig from '../config/AesConfig';
-import { LoginInfo } from '../interface/Login';
 
 @Component
 export default class Login extends Vue {
   @Provide() public userId: string|any = '';
   @Provide() public loginPw: string|any = '';
-  @State((state) => state.login) public login!: LoginInfo;
+  @State((state) => state.login) public login!: LoginState;
 
   public submitLogin() {
     const params = {
       userId: aesEncrypt(this.userId, aesConfig.baseAes),
       loginPw: aesEncrypt(this.loginPw, aesConfig.baseAes),
     };
-    this.$store.dispatch('FETCH_LOGIN', params).then((result) => {
+    this.$store.dispatch('FETCH_LOGIN', params)
+    .then((result) => {
       if (result === 'success') {
         if (this.login.role === 'C') {
           sessionStorage.setItem('roleName', '商户');

@@ -3,7 +3,7 @@
     <Layout>
       <Header>sdsfsdsd</Header>
       <Header :style="{padding: 0, backgroundColor: 'white'}">
-        <Menu ref="side1Menu" theme="light" mode="horizontal">
+        <Menu ref="side1Menu" theme="light" mode="horizontal" :style="{align: 'center'}">
             <template v-for="(item,index) in navItems">
                 <Submenu :ref="'submenu'+index" :key="'submenu-'+index" :name="index">
                     <template slot="title">
@@ -27,11 +27,9 @@
 <script lang="ts">
 import { Component, Prop, Vue, Provide } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
-import { LoginInfo } from '../interface/Login';
-
 @Component
-export default class Login extends Vue {
-  @State((state) => state.login) public login!: LoginInfo;
+export default class Main extends Vue {
+  @State((state) => state.login) public login!: LoginState;
   @Provide() public navItems: any[] = [];
 
   public mounted() {
@@ -49,9 +47,9 @@ export default class Login extends Vue {
           {name: '代付', item: []},
           {name: '商家管理', item: []},
         ];
-        target.forEach((item) => {
-          const id = item.meta.id;
-          if (+id === 43) {
+        target.forEach((item: any) => {
+          const id = +item.meta.id;
+          if (id === 43) {
             this.navItems[0].item[0] = item;
           } else if (id === 44 || id === 45) {
             this.navItems[1].item.push(item);

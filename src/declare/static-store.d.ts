@@ -1,0 +1,30 @@
+// declare const FETCH_LOGIN = 'FETCH_LOGIN';
+// declare const SET_NEW_ROUTER = 'SET_NEW_ROUTER';
+// declare const SET_AUTH = 'SET_AUTH';
+// declare const SET_ROLE = 'SET_ROLE';
+// declare const SET_ACCOUNT = 'SET_ACCOUNT';
+// declare const SET_TOKEN = 'SET_TOKEN';
+// declare const SET_BELONG_TO = 'SET_BELONG_TO';
+// // security
+// declare const FETCH_SECURITY = 'FETCH_SECURITY';
+// declare const SET_API_AGENTPAY_IS_LIMIT_IP = 'SET_API_AGENTPAY_IS_LIMIT_IP';
+// declare const SET_API_AGENTPAY_LIMIT_IP = 'SET_API_AGENTPAY_LIMIT_IP';
+// declare const SET_BACKEND_AGENTPAY_IS_LIMIT_IP = 'SET_BACKEND_AGENTPAY_IS_LIMIT_IP';
+// declare const SET_BACKEND_AGENTPAY_LIMIT_IP = 'SET_BACKEND_AGENTPAY_LIMIT_IP';
+// declare const SET_BACKEND_IS_LIMIT_IP = 'SET_BACKEND_IS_LIMIT_IP';
+// declare const SET_BACKEND_LIMIT_IP = 'SET_BACKEND_LIMIT_IP';
+// declare const SET_EMAIL = 'SET_EMAIL';
+// declare const SET_IS_GOOGLE_AUTHENTICATION = 'SET_IS_GOOGLE_AUTHENTICATION';
+// declare const SET_IS_PAYPW = 'SET_IS_PAYPW';
+// declare const SET_LAST_LOGIN_DATE = 'SET_LAST_LOGIN_DATE';
+// // global
+// declare const FETCH_ACCOUNT_MAP = 'FETCH_ACCOUNT_MAP';
+// declare const FETCH_PAYTYPE_MAP = 'FETCH_PAYTYPE_MAP';
+// declare const FETCH_ROUTE_MAP = 'FETCH_ROUTE_MAP';
+// declare const SET_ACCOUNT_MAP = 'SET_ACCOUNT_MAP';
+// declare const SET_PAYTYPE_MAP = 'SET_PAYTYPE_MAP';
+// declare const SET_PAYTYPE = 'SET_PAYTYPE';
+// declare const SET_ROUTE_MAP = 'SET_ROUTE_MAP';
+// declare const SET_ROUTE_EN_MAP = 'SET_ROUTE_EN_MAP';
+// declare const SET_ROUTE = 'SET_ROUTE';
+// declare const SET_BASE_URL = 'SET_BASE_URL';
