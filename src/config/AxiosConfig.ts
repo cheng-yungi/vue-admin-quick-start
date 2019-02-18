@@ -2,8 +2,8 @@ import axios from 'axios';
 import platformConfig from './PlatformConfig';
 class AxiosConfig {
   public axios: any;
-  constructor(instanse: any) {
-    this.axios = instanse;
+  constructor(instance: any) {
+    this.axios = instance;
   }
   public init(): any {
     this.axios.defaults.timeout = 10000;
@@ -26,4 +26,5 @@ class AxiosConfig {
   }
 }
 const t = new AxiosConfig(axios);
+t.init();
 export default t.axios;

@@ -4,7 +4,7 @@ import platformConfig from '../../../config/PlatformConfig';
 import aesConfig from '../../../config/AesConfig';
 
 const initialState: GlobalState = {
-  accountMap: {},
+  accountMap: null,
   payTypeMap: JSON.parse(sessionStorage.getItem('payTypeMap')),
   payType: JSON.parse(sessionStorage.getItem('payType')),
   routeMap: JSON.parse(sessionStorage.getItem('routeMap')),

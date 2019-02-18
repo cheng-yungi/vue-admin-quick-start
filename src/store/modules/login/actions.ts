@@ -1,9 +1,17 @@
 import axios from '../../../config/AxiosConfig';
 import { Commit } from 'vuex';
-import { FETCH_LOGIN, SET_ACCOUNT, SET_AUTH, SET_ROLE, SET_TOKEN, SET_BELONG_TO } from '@/store/types';
+import {
+  FETCH_LOGIN,
+  SET_ACCOUNT,
+  SET_AUTH,
+  SET_ROLE,
+  SET_TOKEN,
+  SET_BELONG_TO,
+  SET_LAST_LOGIN_IP,
+} from '@/store/types';
 
 export const actions = {
-  [FETCH_LOGIN]( context: { commit: Commit, state: State } , payload: LoginForm) {
+  [FETCH_LOGIN]( context: { commit: Commit, state: LoginState } , payload: LoginForm) {
     return axios.post(`/authenticate`, payload)
       .then((res: any) => {
         if (res.data.status === '0') {
@@ -24,6 +32,7 @@ export const actions = {
           context.commit(SET_ROLE, role);
           context.commit(SET_TOKEN, token);
           context.commit(SET_BELONG_TO, belongTo);
+          context.commit(SET_LAST_LOGIN_IP, lastLoginIp);
           return 'success';
         } else {
           return 'fail';

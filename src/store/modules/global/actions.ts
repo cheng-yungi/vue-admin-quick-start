@@ -13,9 +13,9 @@ import {
 } from '@/store/types';
 
 export const actions = {
-  [FETCH_ACCOUNT_MAP](context: { commit: Commit, state: State }) {
+  [FETCH_ACCOUNT_MAP](context: { commit: Commit, state: GlobalState }) {
     return new Promise((resolve, reject) => {
-      if (!context.state.global.accountMap) {
+      if (!context.state.accountMap) {
         axios.get(`/api/v1/common/userIdMappingSpNameInLevelAandC`)
           .then((res: any) => {
             if (res.data.status !== '0') {
@@ -32,9 +32,9 @@ export const actions = {
       }
     });
   },
-  [FETCH_PAYTYPE_MAP](context: { commit: Commit, state: State }) {
+  [FETCH_PAYTYPE_MAP](context: { commit: Commit, state: GlobalState }) {
     return new Promise((resolve, reject) => {
-      if (!context.state.global.payTypeMap || !context.state.global.payType) {
+      if (!context.state.payTypeMap || !context.state.payType) {
         axios.get(`/api/v1/common/payType`)
         .then((res: any) => {
           if (res.data.status !== '0') {
@@ -57,9 +57,9 @@ export const actions = {
       }
     });
   },
-  [FETCH_ROUTE_MAP](context: { commit: Commit, state: State }) {
+  [FETCH_ROUTE_MAP](context: { commit: Commit, state: GlobalState }) {
     return new Promise((resolve, reject) => {
-      if (!context.state.global.routeMap) {
+      if (!context.state.routeMap) {
         axios.get(`/api/v1/route`)
         .then((res: any) => {
           if (res.data.status !== '0') {

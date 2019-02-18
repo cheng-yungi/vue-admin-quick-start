@@ -4,9 +4,9 @@ import routes from './mainRouter';
 export function initDynamicRouteMap(router: Router, store: Store<any>): void {
   router.beforeEach((to, from, next) => {
     const token: string = sessionStorage.token;
-    const auth: string[] = Array.from(JSON.parse(sessionStorage.auth));
-    const role: string = sessionStorage.role;
     if (token) {
+      const auth: string[] = Array.from(JSON.parse(sessionStorage.auth));
+      const role: string = sessionStorage.role;
       if (to.path === '/login') {
         next();
       } else {

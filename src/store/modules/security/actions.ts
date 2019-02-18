@@ -2,9 +2,9 @@ import axios from '../../../config/AxiosConfig';
 import { Commit } from 'vuex';
 import { FETCH_SECURITY } from '@/store/types';
 export const actions = {
-  [FETCH_SECURITY](context: { commit: Commit, state: State } ) {
+  [FETCH_SECURITY](context: { commit: Commit, state: SecurityState } ) {
     return new Promise((resolve, reject) => {
-      if (context.state.security.eMail.length === 1) {
+      if (context.state.eMail.length === 1) {
         axios.get(`/api/v1/securityCenter`)
           .then((res: any) => {
             if (res.data.status !== '0') {

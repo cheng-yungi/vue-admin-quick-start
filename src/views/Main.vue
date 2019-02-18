@@ -1,7 +1,19 @@
 <template>
   <div>
     <Layout>
-      <Header>sdsfsdsd</Header>
+      <Header>
+        <Row type="flex" justify="space-between">
+          <Col span="6">
+          </Col>
+          <Col span="3">
+          </Col>
+          <Col span="4" class="header-info">上次登入IP：{{login.lastLoginIp}}</Col>
+          <Col span="4" class="header-info">帐号：{{login.account}}</Col>
+          <Col span="1">
+            <Button icon="md-log-out" @click="logout" type="primary" shape="circle"></Button>
+          </Col>
+        </Row>
+      </Header>
       <Header :style="{padding: 0, backgroundColor: 'white'}">
         <Menu ref="side1Menu" theme="light" mode="horizontal" :style="{align: 'center'}">
             <template v-for="(item,index) in navItems">
@@ -18,7 +30,11 @@
             </template>
         </Menu>
       </Header>
-      <Content :style="{height:'100%'}">
+      <Content :style="{padding: '0 16px 16px'}">
+        <Breadcrumb class="breadcrumb-custom" :style="{margin: '16px 0'}">
+            <BreadcrumbItem>{{login.roleName}}</BreadcrumbItem>
+            <BreadcrumbItem id="active-bread" :to="{ path: $route.path }">{{$route.name}}</BreadcrumbItem>
+        </Breadcrumb>
         <router-view></router-view>
       </Content>
     </Layout>
@@ -27,15 +43,22 @@
 <script lang="ts">
 import { Component, Prop, Vue, Provide } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
+import { FETCH_ROUTE_MAP, FETCH_PAYTYPE_MAP, FETCH_ACCOUNT_MAP } from '@/store/types';
 @Component
 export default class Main extends Vue {
   @State((state) => state.login) public login!: LoginState;
+  @State((state) => state.global) public global: GlobalState;
   @Provide() public navItems: any[] = [];
+
+  public created() {
+    this.$store.dispatch(FETCH_ROUTE_MAP);
+    this.$store.dispatch(FETCH_PAYTYPE_MAP);
+    this.$store.dispatch(FETCH_ACCOUNT_MAP);
+  }
 
   public mounted() {
     this.init();
   }
-
   public init() {
     const target = this.login.newRouter;
     if (this.login.role === 'C' || this.login.role === 'D') {
@@ -64,5 +87,12 @@ export default class Main extends Vue {
       }
     }
   }
+
+  public logout() {}
 }
 </script>
+<style scoped>
+  .header-info {
+    color: white
+  }
+</style>
