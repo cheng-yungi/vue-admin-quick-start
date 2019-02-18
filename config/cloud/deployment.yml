@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-client-vue-dm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-client-vue-dm
+  template:
+    metadata:
+      labels:
+        app: payment-client-vue-dm
+    spec:
+      containers:
+      - name: payment-client-vue-app
+        image: asia.gcr.io/cgpay-226504/payment-client-vue:1
+        ports:
+        - name: ybk-port
+          containerPort: 8080
